@@ -304,17 +304,16 @@ Route::get('/posts', function(){
 //
 //});
 
-
 // Polymorphic Relations
 Route::get('user/photos', function(){
 
     $user = User::find(1);
 
-      foreach($user->photos as $photo) {
+    foreach($user->photos as $photo) {
 
         return $photo;
 
-       }
+    }
 
 
 });
@@ -330,3 +329,4 @@ Route::get('post/{id}/photos', function($id){
 
 
 });
+
