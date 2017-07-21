@@ -11,6 +11,7 @@
 |
 */
 use App\Country;
+use App\Photo;
 use App\Post;
 use App\User;
 
@@ -326,6 +327,15 @@ Route::get('post/{id}/photos', function($id){
         echo $photo->path . "</br>";
 
     }
+
+});
+
+
+Route::get('photo/{id}/post', function($id){
+
+    $photo = Photo::findOrFail($id);
+
+     return $photo->imageable;
 
 
 });
