@@ -367,3 +367,28 @@ Route::get('/tag/post', function(){
     }
 
 });
+
+
+
+
+
+//CRUD Application
+
+
+Route::resource('/posts', 'PostsController');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
