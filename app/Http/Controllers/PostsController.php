@@ -22,9 +22,10 @@ class PostsController extends Controller
 
     {
 
-
-        $posts = Post::all();
-
+//          $posts = Post::latest()->get(); //getting the lates post provide by laravel functions
+//          $posts = Post::orderBy('id', 'desc')->get(); //another alternative for latest post provided by laravel
+//          $posts = Post::all(); //getting all posts
+        $posts = Post::latest();
 
         return view('posts.index', compact('posts'));
     }
