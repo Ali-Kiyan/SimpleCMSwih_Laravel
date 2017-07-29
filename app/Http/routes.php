@@ -372,11 +372,18 @@ Route::get('/tag/post', function(){
 
 
 
+
 //CRUD Application
 
 
-Route::resource('/posts', 'PostsController');
 
+Route::group(['middleware'=>'web'], function(){
+
+    Route::resource('/posts', 'PostsController');
+
+
+
+});
 
 
 

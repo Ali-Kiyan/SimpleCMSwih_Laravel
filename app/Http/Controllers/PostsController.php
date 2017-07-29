@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\View\Middleware\ErrorBinder;
 
 
 use App\Http\Requests;
@@ -43,13 +45,25 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
+//        first way of validation the second way is by changing the argument to the related request class and difine the validation rule there
+//        $this->validate($request, [
+//
+//            'title' => 'required|max:4'
+//
+//        ]);
 
-//          return $request->title;
+
+
+
+
+
+
+//        return $request->title;
 //        return $request->all();
 //        return $request->get('title');
-//          first way
+//        first way
 
           Post::create($request->all());
 

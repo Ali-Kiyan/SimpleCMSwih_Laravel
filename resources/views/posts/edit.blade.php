@@ -9,30 +9,29 @@
 
  <h1>Edit Post</h1>
 
-    <form method="post" action="/posts/{{$post->id}}">
+ {!! Form::model($post, ['method' => 'PATCH', 'action' => ['PostsController@update', $post->id]]) !!}
 
         {{--laravel needs to have put action to recognize the update so we do it manually--}}
         {{csrf_field()}}
 
-        <input type="hidden" name="_method" value="PUT">
-
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="text" name="title" value="{{$post->title}}">
-        <input type="submit" name="Update">
-    </form>
-
+        {!! Form::label('title', 'Title:') !!}
+        {!! Form::text('title', null, ['class'=>'form-control'])!!}
+        {!! Form::submit('Update Post', ['class'=>'btn btn-info'])   !!}
+        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+ {!! Form::close() !!}
 
 
 
- <form method="post" action="/posts/{{$post->id}}">
+
+ {!! Form::open(['method' => 'DELETE', 'action' =>['PostsController@destroy', $post->id]]) !!}
 
 
-     <input type="hidden" name="_method" value="DELETE">
-     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+ {!! Form::submit('Delete Post', ['class'=>'btn btn-danger'])   !!}
+     {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
      <input type="submit" value="DELETE">
 
 
- </form>
+ {!! Form::close() !!}
 
 @endsection
 @section('footer')
